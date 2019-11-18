@@ -1,0 +1,102 @@
+{
+  "version": "0.0.1",
+  "name": "template-parcel-react-ssr-ts-sc",
+  "description": "dead simple project setup",
+  "main": "dist/server/server",
+  "source": "src/client/index.html",
+  "scripts": {
+    "👨🏻‍💻": "",
+    "dev": "yarn parcel $npm_package_source -d ./dist --open",
+    "build": "rm -rf dist && yarn build::imported && yarn build::client && yarn build::server",
+    "build::client": "yarn parcel build $npm_package_source -d dist/client --public-url /dist --no-cache --no-autoinstall",
+    "build::server": "yarn parcel build src/server/server.ts -d dist/server --public-url /dist --target=node --no-cache --no-autoinstall",
+    "build::imported": "imported-components src src/client/imported-modules.ts",
+    "start": "yarn && yarn build && node $npm_package_main",
+    "clear::all": "rm -rf .cache dist node_modules yarn.lock",
+    "🔑": "",
+    "postinstall": "yarn remove-falsy-types",
+    "remove-falsy-types": "rm -rf node_modules/@types/react-native",
+    "lint:ci": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet",
+    "lint:fix": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsc --noEmit && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint . --fix",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "ssr",
+    "react",
+    "parcel",
+    "typescript",
+    "styled-components"
+  ],
+  "author": "evergosu <evergosu@gmail.com> (https://evergosu.dev)",
+  "license": "MIT",
+  "browserslist": [
+    "ie 11",
+    "last 1 edge version",
+    "last 2 opera versions",
+    "last 2 safari versions",
+    "last 2 chrome versions",
+    "last 2 firefox versions",
+    "last 1 and_ff version",
+    "last 1 android version",
+    "last 1 and_chr version",
+    "last 1 ios_saf version"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "@babel/preset-typescript": "^7.7.2",
+    "@types/compression": "^1.0.1",
+    "@types/express": "^4.17.2",
+    "@types/node": "^12.12.8",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-router-dom": "^5.1.2",
+    "@types/styled-components": "^4.4.0",
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/parser": "^2.7.0",
+    "babel-plugin-styled-components": "^1.10.6",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.6.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.0.4",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "jest": "^24.9.0",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.19.1",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.7.2",
+    "cheerio": "^1.0.0-rc.3",
+    "compression": "^1.7.4",
+    "core-js": "3.4.1",
+    "express": "^4.17.1",
+    "react": "^16.12.0",
+    "react-dom": "npm:@hot-loader/react-dom",
+    "react-helmet": "^5.2.1",
+    "react-helmet-async": "^1.0.4",
+    "react-hot-loader": "^4.12.18",
+    "react-imported-component": "^6.2.1",
+    "react-router-dom": "^5.1.2",
+    "regenerator-runtime": "^0.13.3",
+    "styled-components": "^4.4.1"
+  }
+}
