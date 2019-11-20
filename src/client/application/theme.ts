@@ -1,16 +1,16 @@
 import { DefaultTheme } from 'styled-components';
 
 const enum Palette {
-  'color1' = '#f6ffed',
-  'color2' = '#d9f7be',
-  'color3' = '#b7eb8f',
-  'color4' = '#95de64',
-  'color5' = '#73d13d',
-  'color6' = '#52c41a',
-  'color7' = '#389e0d',
-  'color8' = '#237804',
-  'color9' = '#135200',
-  'color10' = '#092b00',
+  'green1' = '#f6ffed',
+  'green2' = '#d9f7be',
+  'green3' = '#b7eb8f',
+  'green4' = '#95de64',
+  'green5' = '#73d13d',
+  'green6' = '#52c41a',
+  'green7' = '#389e0d',
+  'green8' = '#237804',
+  'green9' = '#135200',
+  'green10' = '#092b00',
 }
 
 declare module 'styled-components' {
@@ -23,7 +23,7 @@ declare module 'styled-components' {
 
 const theme: DefaultTheme = {
   colors: {
-    primary: Palette.color7,
+    primary: Palette.green7,
   },
 };
 

@@ -1,16 +1,14 @@
 import { hot } from 'react-hot-loader';
-import { Helmet } from 'react-helmet-async';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import importedComponent from 'react-imported-component';
 import { ThemeProvider } from 'styled-components';
+import { Helmet } from 'react-helmet-async';
 import React from 'react';
 
 import GlobalStyles from './global-styles';
 import theme from './theme';
 
-const HelloWorldPage = importedComponent(() =>
-  import('./hello-world-page/hello-world-page'),
-);
+const HelloPage = importedComponent(() => import('./hello-page/hello-page'));
 
 const Application: React.FC = () => {
   return (
@@ -19,7 +17,7 @@ const Application: React.FC = () => {
         <GlobalStyles />
         <Helmet titleTemplate="The App | %s" defaultTitle="The App" />
         <Switch>
-          <Route exact path="/" component={HelloWorldPage} />
+          <Route exact path="/" component={HelloPage} />
           <Redirect to="/" />
         </Switch>
       </>
